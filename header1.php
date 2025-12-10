@@ -33,7 +33,7 @@
       <nav class="hidden md:flex gap-6 font-medium text-gray-800">
         <a href="index.php" class="hover:text-orange-700 transition">Gift Home</a>
         <a href="#products" class="hover:text-orange-700 transition">Products</a>
-        <a href="#cta" class="hover:text-orange-700 transition">Shop</a>
+        
         <a href="#footer" class="hover:text-orange-700 transition">Contact</a>
       </nav>
 
@@ -50,7 +50,7 @@
       <div class="flex flex-col py-2">
         <a href="index.php" class="block px-6 py-3 border-b border-gray-200 hover:bg-orange-50 transition">Gift Home</a>
         <a href="#products" class="block px-6 py-3 border-b border-gray-200 hover:bg-orange-50 transition">Products</a>
-        <a href="#cta" class="block px-6 py-3 border-b border-gray-200 hover:bg-orange-50 transition">Shop</a>
+        
         <a href="#footer" class="block px-6 py-3 border-b border-gray-200 hover:bg-orange-50 transition">Contact</a>
       </div>
     </nav>
