@@ -56,6 +56,9 @@ $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $products = $stmt->fetchAll();
 
+/* ---- TOTAL PRODUCTS COUNT ---- */
+$totalProducts = count($products);
+
 $categoryList = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -75,8 +78,14 @@ $categoryList = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetch
         <h1 class="text-2xl sm:text-3xl font-bold text-orange-600">Manage Products</h1>
 
         <div class="flex gap-3">
-            <a href="dashboard.php" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 font-medium">Dashboard</a>
-            <a href="add_product.php" class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-medium">Add Product</a>
+            <a href="dashboard.php"
+                class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 font-medium">
+                Dashboard
+            </a>
+            <a href="add_product.php"
+                class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-medium">
+                Add Product
+            </a>
         </div>
     </div>
 </header>
@@ -87,6 +96,14 @@ $categoryList = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetch
     Product deleted successfully!
 </div>
 <?php endif; ?>
+
+<!-- SHOW TOTAL PRODUCTS COUNT -->
+<div class="max-w-6xl mx-auto mb-4">
+    <div class="bg-white p-4 rounded-xl shadow font-semibold text-gray-700 text-center sm:text-left">
+        Total Products: 
+        <span class="text-orange-600 font-bold"><?= $totalProducts ?></span>
+    </div>
+</div>
 
 <!-- SEARCH AND FILTER -->
 <div class="max-w-6xl mx-auto bg-white p-6 rounded-xl shadow mb-6">
@@ -126,7 +143,6 @@ $categoryList = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetch
                     <th class="px-4 py-3 text-left text-gray-700 font-medium">Name</th>
                     <th class="px-4 py-3 text-left text-gray-700 font-medium">Category</th>
                     <th class="px-4 py-3 text-left text-gray-700 font-medium">Price</th>
-                   
                     <th class="px-4 py-3 text-center text-gray-700 font-medium">Actions</th>
                 </tr>
             </thead>
@@ -151,8 +167,6 @@ $categoryList = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetch
                         </td>
 
                         <td class="px-4 py-3 text-sm">Rs <?= number_format($p['price'], 2) ?></td>
-
-                        
 
                         <td class="px-4 py-3 flex justify-center gap-2">
                             <a href="edit_product.php?id=<?= $p['id'] ?>"
